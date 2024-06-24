@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+                        
+    
+    
+    
+    
+    <user>
+                                                
+        
+        
+        
+        
+        <id>2</id>
+                                                
+        
+        
+        
+        
+        <username>user</username>
+                                                
+        
+        
+        
+        
+        <password>$2a$10$PMz5Hhmx8RlVAShUFv5Jpe1cyUQVLsmaqaEZBituvmX600owKKe.K</password>
+                                                
+        
+        
+        
+        
+        <email>johsdn@example.com</email>
+                                                
+        
+        
+        
+        
+        <role>ROLE_ADMIN, ROLE_USER</role>
+                                                
+        
+        
+        
+        
+        <age>13</age>
+                                            
+    
+    
+    
+    
+    </user>
+                        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <user>
+        <id>3</id>
+        <username>john</username>
+        <password>$2a$10$PMz5Hhmx8RlVAShUFv5Jpe1cyUQVLsmaqaEZBituvmX600owKKe.K</password>
+        <email>john123@gmail.com</email>
+        <age>11</age>
+        <role>ROLE_ADMIN</role>
+    </user>
+</users>

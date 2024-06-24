@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <style>
+        Body {
+            font-family: Calibri, Helvetica, sans-serif;
+            background-color: pink;
+        }
+
+        button {
+            background-color: #4CAF50;
+            width: 100%;
+            color: orange;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        .inputV {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid green;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            padding: 25px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center;"><h1> <a href="/login"> Have an account? Sign-in</a> </h1></div>
+<form id="registrationForm">
+    <div class="container">
+        <input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <div>
+            <label for="name">Username:</label>
+            <input class="inputV" type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="password">password:</label>
+            <input class="inputV" type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input class="inputV" type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input class="inputV" type="number" id="age" name="age">
+        </div>
+        <div>
+            <button type="button" onclick="submitForm()">Register</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    function submitForm() {
+        const form = document.getElementById("registrationForm");
+        const formData = {
+            name: form.name.value,
+            password: form.password.value,
+            email: form.email.value,
+            age: form.age.value
+        };
+        const token = document.getElementById("csrfToken").value
+        fetch("/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": token
+            },
+            body: JSON.stringify(formData)
+        })
+            .catch(error => console.error("Error:", error));
+        alert("REGISTRATION SUCCESSFUL")
+        window.location.href = "/auc/users";
+    }
+</script>
+</body>
+</html>
